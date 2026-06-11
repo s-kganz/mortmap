@@ -3,7 +3,7 @@ import { ZarrLayer } from '@carbonplan/zarr-layer'
 
 var map = new maplibregl.Map({
     container: 'map',
-    style: 'https://tiles.stadiamaps.com/styles/alidade_smooth.json',  // Style URL; see our documentation for more options
+    style: "https://tiles.openfreemap.org/styles/positron",  // Style URL; see our documentation for more options
     center: [12, 53],  // Initial focus coordinate
     zoom: 4
 });
