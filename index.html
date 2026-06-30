@@ -1,25 +1,77 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Vector Map Demo</title>
-        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-        <style type="text/css">
-            body {
-              margin: 0;
-              padding: 0;
-            }
 
-            #map {
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              width: 100%;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="map"></div>
-        <script type="text/javascript" src="src.js"></script>
-    </body>
+<head>
+  <meta charset="utf-8" />
+  <title>USFS ADS Map</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div id="map"></div>
+  <aside class="panel" id="legend-panel">
+    <div class="panel-header">
+      <div>
+        <a class="eyebrow eyebrow-link"
+          href="https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/index.php" target="_blank"
+          rel="noreferrer">
+          USFS ADS
+        </a>
+        <h1>Forest damage in the US</h1>
+      </div>
+      <!-- <button id="panel-toggle" class="panel-toggle" type="button" aria-expanded="true">
+        Hide
+      </button> -->
+    </div>
+
+    <div class="panel-body">
+      <p class="lede">
+        This map shows aerial surveys in a PMTiles-backed map hosted by
+        <a class="lede-link" href="https://source.coop/ganzk/ads" target="_blank" rel="noreferrer">
+          Source Coop
+        </a>
+      </p>
+
+      <div class="control-grid">
+        <div class="control-row control-row-wide">
+          <div class="control-inline">
+            <span class="control-label">Basemap</span>
+            <button id="basemap-toggle" class="toggle-button toggle-button-compact" type="button" aria-pressed="true">Satellite</button>
+          </div>
+          <div class="control-inline">
+            <span class="control-label">Survey year</span>
+            <input type="range" id="ads-year" name="ads-year" min="1999" max="2023" value="2010" step="1" style="width: 40%">
+            <span class="control-label" id="ads-year-label">2010</span>
+          </div>
+        </div>
+
+        <div id="legend-section" class="control-row control-row-wide legend-section">
+          <div id="legend-list" class="legend-list">
+            <div id="ads-legend" class="legend-grid" aria-label="ADS legend"></div>
+          </div>
+          <button id="legend-toggle" class="toggle-button toggle-button-compact legend-button" type="button"
+            aria-expanded="true">
+            Legend
+          </button>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <script type="text/javascript" src="src.js"></script>
+</body>
+
 </html>
