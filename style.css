@@ -414,7 +414,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0px 6px;
-  max-height: 184px;
+  max-height: 250px;
   overflow: auto;
   padding-right: 2px;
   scrollbar-width: thin;
@@ -482,7 +482,7 @@ h1 {
   display: none;
 }
 
-.field-popup .maplibregl-popup-content {
+/* .field-popup .maplibregl-popup-content {
   padding: 8px 10px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.5);
@@ -500,7 +500,7 @@ h1 {
 .maplibregl-popup-content {
   border-radius: 14px;
   box-shadow: 0 24px 70px rgba(10, 12, 9, 0.22);
-}
+} */
 
 .maplibregl-ctrl-top-right {
   top: 18px;

@@ -1,4 +1,5 @@
 import maplibregl from 'maplibre-gl'
+import "maplibre-gl/dist/maplibre-gl.css";
 import { Protocol, PMTiles } from 'pmtiles';
 import { dcaFillColorPaint, dcaClassLegend } from "./legends.js";
 import { basemapStyles } from './basemaps.js';
@@ -146,12 +147,7 @@ function getOverlayFeatureAtPoint(point) {
 }
 
 function formatPopupContent(object) {
-    return `<div class="field-popup-content">Forest type: ${object.HOST_CODE}, Damage agent: ${object.DCA_CODE}</div>`;
-}
-
-function getOverlayFeatureAtPoint(point) {
-  const features = map.queryRenderedFeatures(point, { layers: ["csb-fill"] });
-  return features[0];
+    return `<div class="field-popup-content">Forest type: ${object.HOST_LABEL}<br>Damage agent: ${object.DCA_LABEL}</div>`;
 }
 
 function wireInteractivity() {
@@ -159,13 +155,11 @@ function wireInteractivity() {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 
-        const description = e.features[0].properties.DCA_CODE;
-
         // Populate the popup and set its coordinates
         // based on the feature found.
         console.log("Update popup")
         console.log(e.lngLat)
-        POPUP.setLngLat(e.lngLat).setHTML(`<p>${description}</p>`).addTo(map);
+        POPUP.setLngLat(e.lngLat).setHTML(formatPopupContent(e.features[0].properties)).addTo(map);
     });
 
     map.on('mouseleave', 'damage', () => {

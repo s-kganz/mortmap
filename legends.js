@@ -9,6 +9,7 @@ export const dcaClassLegend = [
     {value: 7, label: "Anthropogenic", color: "#debb48ff"},
     {value: 8, label: "Invasive plants", color: "#194431ff"},
     {value: 9, label: "Uncategorized", color: "#2f2d2dff"},
+    {value: -1,label: "Survey area", color: "#aaaaaa"}
 ]
 
 export function dcaFillColorPaint() {
